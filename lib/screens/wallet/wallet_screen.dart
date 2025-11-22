@@ -6,7 +6,6 @@ import 'package:intl/intl.dart';
 import '../../theme.dart';
 import '../../transaction_model.dart';
 import 'wallet_provider.dart';
-import 'wallet_service.dart';
 
 class WalletScreen extends ConsumerStatefulWidget {
   const WalletScreen({super.key});

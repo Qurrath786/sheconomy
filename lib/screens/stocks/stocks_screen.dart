@@ -11,8 +11,6 @@ import 'package:intl/intl.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../theme/theme.dart';
-import 'mock_stock_service.dart';
-import 'stock_api_service.dart';
 import 'risk_engine.dart';
 
 /// StocksScreen
