@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "471623806269",
+    "project_id": "sheconomy-app",
+    "storage_bucket": "sheconomy-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471623806269:android:240fbe0d53051d62bee954",
+        "android_client_info": {
+          "package_name": "com.example.sheconomy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "471623806269-bara5slq9sq6qaubge85qh9en1e8km9p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD044huk3UkoCtUXR1vxCc7E0KuyiwrBJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "471623806269-bara5slq9sq6qaubge85qh9en1e8km9p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
