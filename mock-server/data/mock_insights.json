@@ -1,0 +1,28 @@
+{
+    "userId": "user_123",
+    "range": {"from": "2025-11-01", "to": "2025-11-21"},
+    "summary": {
+      "total_savings": 12500.50,
+      "income": 8000.00,
+      "expenses": 3500.50,
+      "net_change": 4500.00
+    },
+    "timeseries": [
+      {"date":"2025-11-01","balance":10000,"income":500,"expenses":200},
+      {"date":"2025-11-05","balance":10400,"income":1000,"expenses":600},
+      {"date":"2025-11-10","balance":11000,"income":2000,"expenses":1000},
+      {"date":"2025-11-15","balance":12000,"income":1500,"expenses":500},
+      {"date":"2025-11-20","balance":12500,"income":1000,"expenses":500}
+    ],
+    "by_category": [
+      {"category":"Food","amount":900.5},
+      {"category":"Transport","amount":400},
+      {"category":"Shopping","amount":700},
+      {"category":"Bills","amount":600}
+    ],
+    "recent_activity": [
+      {"id":"tx_01","date":"2025-11-20","title":"Groceries","amount":150.0,"type":"expense","category":"Food"},
+      {"id":"tx_02","date":"2025-11-18","title":"Salary","amount":2000.0,"type":"income","category":"Income"}
+    ]
+  }
+  

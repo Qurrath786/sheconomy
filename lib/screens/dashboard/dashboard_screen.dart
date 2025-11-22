@@ -6,7 +6,7 @@ import '../../theme/theme.dart';
 import '../wallet/wallet_screen.dart';
 import '../tools/tools_screen.dart';
 import '../learn/learn_screen.dart';
-import '../insights/insights_screen.dart';
+import '../insights/insights_screen_old.dart';
 import '../stocks/stocks_screen.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -19,7 +19,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = const [
+  final List<Widget> _screens = [
     WalletScreen(),
     ToolsScreen(),
     LearnScreen(),
