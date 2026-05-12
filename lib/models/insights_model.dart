@@ -1,5 +1,4 @@
 // lib/models/insights_model.dart
-import 'package:flutter/foundation.dart';
 
 class InsightsModel {
   final String userId;
@@ -60,14 +59,14 @@ class Summary {
     required this.netChange,
   });
   factory Summary.fromJson(Map<String, dynamic> json) {
-    double _toDouble(dynamic v) => v == null
+    double toDouble(dynamic v) => v == null
         ? 0.0
         : (v is num ? v.toDouble() : double.tryParse('$v') ?? 0.0);
     return Summary(
-      totalSavings: _toDouble(json['total_savings']),
-      income: _toDouble(json['income']),
-      expenses: _toDouble(json['expenses']),
-      netChange: _toDouble(json['net_change'] ?? 0),
+      totalSavings: toDouble(json['total_savings']),
+      income: toDouble(json['income']),
+      expenses: toDouble(json['expenses']),
+      netChange: toDouble(json['net_change'] ?? 0),
     );
   }
 }
@@ -84,15 +83,15 @@ class TimeSeriesPoint {
     required this.expense,
   });
   factory TimeSeriesPoint.fromJson(Map<String, dynamic> json) {
-    double _toDouble(dynamic v) => v == null
+    double toDouble(dynamic v) => v == null
         ? 0.0
         : (v is num ? v.toDouble() : double.tryParse('$v') ?? 0.0);
     final dateStr = json['date'] as String? ?? '';
     return TimeSeriesPoint(
       date: DateTime.tryParse(dateStr) ?? DateTime.now(),
-      balance: _toDouble(json['balance']),
-      income: _toDouble(json['income']),
-      expense: _toDouble(json['expenses'] ?? json['expense']),
+      balance: toDouble(json['balance']),
+      income: toDouble(json['income']),
+      expense: toDouble(json['expenses'] ?? json['expense']),
     );
   }
 }
@@ -102,12 +101,12 @@ class CategoryBreakdown {
   final double amount;
   CategoryBreakdown({required this.category, required this.amount});
   factory CategoryBreakdown.fromJson(Map<String, dynamic> json) {
-    double _toDouble(dynamic v) => v == null
+    double toDouble(dynamic v) => v == null
         ? 0.0
         : (v is num ? v.toDouble() : double.tryParse('$v') ?? 0.0);
     return CategoryBreakdown(
       category: (json['category'] as String?) ?? '',
-      amount: _toDouble(json['amount']),
+      amount: toDouble(json['amount']),
     );
   }
 }
@@ -130,14 +129,14 @@ class Activity {
   });
 
   factory Activity.fromJson(Map<String, dynamic> json) {
-    double _toDouble(dynamic v) => v == null
+    double toDouble(dynamic v) => v == null
         ? 0.0
         : (v is num ? v.toDouble() : double.tryParse('$v') ?? 0.0);
     final dateStr = json['date'] as String? ?? '';
     return Activity(
       id: json['id'] as String? ?? '',
       title: json['title'] as String? ?? '',
-      amount: _toDouble(json['amount']),
+      amount: toDouble(json['amount']),
       type: json['type'] as String? ?? '',
       category: json['category'] as String? ?? '',
       date: DateTime.tryParse(dateStr) ?? DateTime.now(),

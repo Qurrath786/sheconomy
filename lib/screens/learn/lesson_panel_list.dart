@@ -7,10 +7,10 @@ class LessonPanelList extends StatelessWidget {
   final void Function(Lesson) onOpenLesson;
 
   const LessonPanelList({
-    Key? key,
+    super.key,
     required this.lessons,
     required this.onOpenLesson,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

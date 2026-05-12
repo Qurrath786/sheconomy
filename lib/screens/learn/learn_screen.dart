@@ -6,7 +6,7 @@ import 'lesson_detail.dart';
 import 'learn_styles.dart';
 
 class LearnScreen extends StatelessWidget {
-  const LearnScreen({Key? key}) : super(key: key);
+  const LearnScreen({super.key});
 
   void _openLesson(BuildContext context, Lesson lesson) {
     Navigator.push(

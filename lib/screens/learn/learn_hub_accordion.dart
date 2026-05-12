@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// Copy this file into your Flutter project (e.g. lib/screens/learn_hub_accordion.dart)
 
 class LearnHubAccordion extends StatefulWidget {
-  const LearnHubAccordion({Key? key}) : super(key: key);
+  const LearnHubAccordion({super.key});
 
   @override
   State<LearnHubAccordion> createState() => _LearnHubAccordionState();
@@ -243,7 +243,7 @@ class _LearnHubAccordionState extends State<LearnHubAccordion> {
 
 class _CompactLessonCard extends StatefulWidget {
   final Lesson lesson;
-  const _CompactLessonCard({Key? key, required this.lesson}) : super(key: key);
+  const _CompactLessonCard({required this.lesson});
 
   @override
   State<_CompactLessonCard> createState() => _CompactLessonCardState();
@@ -271,10 +271,11 @@ class _CompactLessonCardState extends State<_CompactLessonCard>
 
   void toggle() {
     setState(() => open = !open);
-    if (open)
+    if (open) {
       _ctr.forward();
-    else
+    } else {
       _ctr.reverse();
+    }
   }
 
   @override

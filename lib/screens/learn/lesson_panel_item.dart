@@ -4,7 +4,7 @@ import 'lesson_model.dart';
 class LessonPanelItem extends StatelessWidget {
   final Lesson lesson;
 
-  const LessonPanelItem({Key? key, required this.lesson}) : super(key: key);
+  const LessonPanelItem({super.key, required this.lesson});
 
   @override
   Widget build(BuildContext context) {
