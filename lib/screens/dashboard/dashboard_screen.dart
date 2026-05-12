@@ -1,14 +1,16 @@
 // lib/screens/dashboard/dashboard_screen.dart
+
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../theme/theme.dart';
-import '../auth/login_screen.dart';
+
 import '../wallet/wallet_screen.dart';
 import '../tools/tools_screen.dart';
 import '../learn/learn_screen.dart';
 import '../insights/insights_screen_old.dart';
 import '../stocks/stocks_screen.dart';
 import '../profile/profile_screen.dart';
+
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -26,7 +28,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
     InsightsScreen(),
     StocksScreen(),
     ProfileScreen(),
-
   ];
 
   final List<String> _titles = const [
@@ -47,6 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final isWide = MediaQuery.of(context).size.width > 800;
+    final isTall = MediaQuery.of(context).size.height > 700;
 
     return Scaffold(
       body: Row(
@@ -54,8 +56,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
           NavigationRail(
             selectedIndex: _selectedIndex,
             onDestinationSelected: _onDestinationSelected,
-            extended: isWide,
-            labelType: isWide ? null : NavigationRailLabelType.all,
+
+            // FIXED RESPONSIVE SIDEBAR
+            extended: isWide && isTall,
+
+            labelType:
+                isWide && isTall
+                    ? null
+                    : NavigationRailLabelType.all,
+
             backgroundColor: Colors.white,
 
             leading: Padding(
@@ -66,19 +75,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     width: 52,
                     height: 52,
                     decoration: BoxDecoration(
-                      color: AppTheme.primaryColor.withValues(alpha: 0.1),
+                      color:
+                          AppTheme.primaryColor.withValues(
+                            alpha: 0.1,
+                          ),
                       borderRadius: BorderRadius.circular(16),
                     ),
+
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
+
                       child: Image.asset(
                         'assets/images/sheconomy_logo.png',
                         fit: BoxFit.contain,
                       ),
                     ),
                   ),
+
                   const SizedBox(height: 8),
-                  if (isWide)
+
+                  if (isWide && isTall)
                     const Text(
                       'SHEconomy',
                       style: TextStyle(
@@ -92,54 +108,67 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
             destinations: const [
               NavigationRailDestination(
-                icon: Icon(Icons.account_balance_wallet_outlined),
-                selectedIcon: Icon(Icons.account_balance_wallet),
+                icon: Icon(
+                  Icons.account_balance_wallet_outlined,
+                ),
+                selectedIcon: Icon(
+                  Icons.account_balance_wallet,
+                ),
                 label: Text('Wallet'),
               ),
+
               NavigationRailDestination(
                 icon: Icon(Icons.calculate_outlined),
                 selectedIcon: Icon(Icons.calculate),
                 label: Text('Tools'),
               ),
+
               NavigationRailDestination(
                 icon: Icon(Icons.menu_book_outlined),
                 selectedIcon: Icon(Icons.menu_book),
                 label: Text('Learn'),
               ),
+
               NavigationRailDestination(
                 icon: Icon(Icons.insights_outlined),
                 selectedIcon: Icon(Icons.insights),
                 label: Text('Insights'),
               ),
+
               NavigationRailDestination(
                 icon: Icon(Icons.show_chart_outlined),
                 selectedIcon: Icon(Icons.show_chart),
                 label: Text('Stocks'),
               ),
+
               NavigationRailDestination(
-  icon: Icon(Icons.person_outline),
-  selectedIcon: Icon(Icons.person),
-  label: Text('Profile'),
-),
+                icon: Icon(Icons.person_outline),
+                selectedIcon: Icon(Icons.person),
+                label: Text('Profile'),
+              ),
             ],
-           
           ),
 
           const VerticalDivider(width: 1),
 
           Expanded(
             child: Scaffold(
-              backgroundColor: AppTheme.backgroundColor,
+              backgroundColor:
+                  AppTheme.backgroundColor,
+
               appBar: AppBar(
                 title: Text(
                   _titles[_selectedIndex],
+
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
                     color: AppTheme.textPrimary,
                   ),
                 ),
+
                 centerTitle: true,
               ),
+
               body: _screens[_selectedIndex],
             ),
           ),
