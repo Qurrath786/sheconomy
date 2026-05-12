@@ -1,14 +1,14 @@
 // lib/screens/dashboard/dashboard_screen.dart
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../theme/theme.dart';
-
+import '../auth/login_screen.dart';
 import '../wallet/wallet_screen.dart';
 import '../tools/tools_screen.dart';
 import '../learn/learn_screen.dart';
 import '../insights/insights_screen_old.dart';
 import '../stocks/stocks_screen.dart';
-
+import '../profile/profile_screen.dart';
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
 
@@ -25,6 +25,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
     LearnScreen(),
     InsightsScreen(),
     StocksScreen(),
+    ProfileScreen(),
+
   ];
 
   final List<String> _titles = const [
@@ -33,6 +35,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     'Learn Hub',
     'Insights',
     'Stocks',
+    'Profile',
   ];
 
   void _onDestinationSelected(int index) {
@@ -113,7 +116,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 selectedIcon: Icon(Icons.show_chart),
                 label: Text('Stocks'),
               ),
+              NavigationRailDestination(
+  icon: Icon(Icons.person_outline),
+  selectedIcon: Icon(Icons.person),
+  label: Text('Profile'),
+),
             ],
+           
           ),
 
           const VerticalDivider(width: 1),
